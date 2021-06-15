@@ -3,6 +3,11 @@ kind: ArgoCD
 metadata:
   name: argocd
 spec:
+  resourceCustomizations: |
+    route.openshift.io/Route:
+      ignoreDifferences: |
+        jsonPointers:
+        - /spec/host
   server:
     insecure: true
     route:

@@ -4,5 +4,9 @@ metadata:
   name: argocd
 spec:
   server:
+    insecure: true
     route:
       enabled: true
+      tls:
+        insecureEdgeTerminationPolicy: Redirect
+        termination: edge

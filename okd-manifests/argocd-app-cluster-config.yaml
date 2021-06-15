@@ -13,5 +13,4 @@ spec:
     repoURL: 'https://github.com/vrutkovs/okd-gitops-day1'
     targetRevision: HEAD
   syncPolicy:
-    automated:
-      selfHeal: true
+    automated: {}

@@ -26,7 +26,7 @@ openshift-installer would automatically apply manifests from `openshift` folder.
   * ArgoCD CR declaration with no customizations
   * `argocd` application, which points to the repo with ArgoCD settings
   * clusterrolebinding for bootstrap ArgoCD application controller have permissions to apply changes
-* `05-job` is a simple kubernetes job to apply these manifests, when cluster is ready. The manifests to apply are fetched from the configmap above.
+* `05-bootstrap` is a simple pod which applies these manifests when cluster is ready. The manifests to apply are mounted from the configmap above.
 
 On Openshift cluster initialization bootstrap would apply these manifests, the job would wait for cluster to be healthy enough to run user workloads. Once it applies the manifests, OLM would preinstall ArgoCD operator, the operator would install ArgoCD in the namespace and pick up the application settings.
 

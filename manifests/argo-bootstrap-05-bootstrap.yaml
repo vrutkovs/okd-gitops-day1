@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: argocd-bootstrap
+  namespace: argocd
+spec:
+  containers:
+  - name: cli
+    image: image-registry.openshift-image-registry.svc:5000/openshift/cli
+    command:
+    - "bash"
+    - "-c"
+    - |
+      until oc apply -f /manifests
+      do
+        sleep 10
+      done
+    volumeMounts:
+    - name: manifests
+      mountPath: /manifests
+  serviceAccount: argocd-bootstrapper
+  restartPolicy: OnFailure
+  volumes:
+    - name: manifests
+      configMap:
+        name: argocd-bootstrap-manifests

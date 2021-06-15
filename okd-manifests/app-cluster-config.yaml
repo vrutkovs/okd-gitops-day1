@@ -9,7 +9,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   project: openshift-config
   source:
-    path: app/cluster-config
+    path: app/cluster-configs
     repoURL: 'https://github.com/vrutkovs/okd-gitops-day1'
     targetRevision: HEAD
   syncPolicy:

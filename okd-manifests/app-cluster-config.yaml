@@ -9,7 +9,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   project: default
   source:
-    path: app/cluster-configs
+    path: apps/cluster-configs
     repoURL: 'https://github.com/vrutkovs/okd-gitops-day1'
     targetRevision: HEAD
   syncPolicy:

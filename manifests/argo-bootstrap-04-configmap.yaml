@@ -25,6 +25,8 @@ data:
         path: argocd-settings
         repoURL: 'https://github.com/vrutkovs/okd-gitops-day1'
         targetRevision: HEAD
+      syncPolicy:
+        automated: {}
   03-rbac.yaml: |
     kind: ClusterRoleBinding
     apiVersion: rbac.authorization.k8s.io/v1

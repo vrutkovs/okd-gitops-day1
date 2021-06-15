@@ -8,6 +8,9 @@ subjects:
   - kind: ServiceAccount
     name: argocd-argocd-application-controller
     namespace: argocd
+  - kind: ServiceAccount
+    name: argocd-argocd-server
+    namespace: argocd
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

@@ -4,6 +4,12 @@ metadata:
   name: argocd-bootstrap
   namespace: argocd
 spec:
+  nodeSelector:
+    node-role.kubernetes.io/master: ""
+  tolerations:
+  - effect: NoSchedule
+    key: node-role.kubernetes.io/master
+    operator: Exists
   containers:
   - name: cli
     image: image-registry.openshift-image-registry.svc:5000/openshift/cli

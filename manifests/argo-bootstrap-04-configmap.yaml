@@ -25,3 +25,16 @@ data:
         path: argocd-settings
         repoURL: 'https://github.com/vrutkovs/okd-gitops-day1'
         targetRevision: HEAD
+  03-rbac.yaml: |
+    kind: ClusterRoleBinding
+    apiVersion: rbac.authorization.k8s.io/v1
+    metadata:
+      name: argocd-controller-clusteradmin
+    subjects:
+      - kind: ServiceAccount
+        name: argocd-argocd-application-controller
+        namespace: argocd
+    roleRef:
+      apiGroup: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: cluster-admin

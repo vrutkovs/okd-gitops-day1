@@ -26,4 +26,5 @@ spec:
         - name: manifests
           configMap:
             name: argocd-bootstrap-manifests
-  backoffLimit: 10
+  backoffLimit: 60
+  activeDeadlineSeconds: 60

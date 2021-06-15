@@ -2,6 +2,8 @@ kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: argocd-bootstrap-clusteradmin
+  labels:
+    app.kubernetes.io/instance: argocd
 subjects:
   - kind: ServiceAccount
     name: argocd-bootstrapper

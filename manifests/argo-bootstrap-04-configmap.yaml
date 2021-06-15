@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-bootstrap-manifests
+  namespace: argocd
+data:
+  01-argocd-controller.yaml: |
+    apiVersion: argoproj.io/v1alpha1
+    kind: ArgoCD
+    metadata:
+      name: argocd
+    spec: {}
+  02-app.yaml: |
+    apiVersion: argoproj.io/v1alpha1
+    kind: Application
+    metadata:
+      name: argocd
+      namespace: argocd
+    spec:
+      destination:
+        namespace: argocd
+        server: 'https://kubernetes.default.svc'
+      project: default
+      source:
+        path: argocd-settings
+        repoURL: 'https://github.com/vrutkovs/okd-gitops-day1'
+        targetRevision: HEAD

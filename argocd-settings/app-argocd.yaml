@@ -1,15 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: gitops-for-gitops-config
+  name: argocd
   namespace: openshift-operators
 spec:
   destination:
-    namespace: default
+    namespace: argocd
     server: 'https://kubernetes.default.svc'
   project: default
   source:
-    path: okd-manifests
+    path: argocd-settings
     repoURL: 'https://github.com/vrutkovs/okd-gitops-day1'
     targetRevision: HEAD
   syncPolicy:
